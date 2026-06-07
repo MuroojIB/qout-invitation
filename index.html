@@ -6,33 +6,32 @@
 <title>دعوة | قوت</title>
 <link rel="preconnect" href="https://fonts.googleapis.com"/>
 <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@300;400;500;700;900&family=Amiri:wght@400;700&display=swap" rel="stylesheet"/>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/tabler-icons.min.css"/>
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
 :root{--brown-dark:#3B1008;--brown-mid:#6B2010;--sand:#C4956A;--sage:#A8B5A0;--cream:#F5EFE6}
 html,body{height:100%;overflow-x:hidden}
 body{background:#0d0705;font-family:'Tajawal',sans-serif;color:var(--cream);min-height:100vh;position:relative}
 #names-bg{position:fixed;inset:0;pointer-events:none;z-index:0;overflow:hidden}
-
 .floating-name{
-  position:absolute;
-  font-family:'Amiri',serif;
-  font-size:clamp(12px, 1.5vw, 16px);
-  color:rgba(196,149,106,0.4); 
-  background:rgba(196,149,106,0.03); 
-  border:1px solid rgba(196,149,106,0.15); 
-  border-radius:50%;
-  width:clamp(70px, 8vw, 100px);
-  height:clamp(70px, 8vw, 100px);
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  text-align:center;
-  white-space:nowrap;
-  animation:floatUp linear infinite;
-  user-select:none;
-  box-shadow:0 4px 15px rgba(0,0,0,0.2);
+position:absolute;
+font-family:'Amiri',serif;
+font-size:clamp(12px, 1.5vw, 16px);
+color:rgba(196,149,106,0.4);
+background:rgba(196,149,106,0.03);
+border:1px solid rgba(196,149,106,0.15);
+border-radius:50%;
+width:clamp(70px, 8vw, 100px);
+height:clamp(70px, 8vw, 100px);
+display:flex;
+align-items:center;
+justify-content:center;
+text-align:center;
+white-space:nowrap;
+animation:floatUp linear infinite;
+user-select:none;
+box-shadow:0 4px 15px rgba(0,0,0,0.2);
 }
-
 @keyframes floatUp{0%{transform:translateY(110vh) rotate(var(--rot));opacity:0}10%{opacity:1}90%{opacity:0.7}100%{transform:translateY(-20vh) rotate(var(--rot));opacity:0}}
 body::before{content:'';position:fixed;inset:0;opacity:0.35;pointer-events:none;z-index:1}
 .page{position:relative;z-index:2;min-height:100vh;display:flex;flex-direction:column;align-items:center;padding:2.5rem 1.25rem 3rem;gap:0}
@@ -73,8 +72,8 @@ body::before{content:'';position:fixed;inset:0;opacity:0.35;pointer-events:none;
 .av-stack{display:flex}
 .av{width:26px;height:26px;border-radius:50%;font-size:9px;font-weight:700;display:flex;align-items:center;justify-content:center;border:2px solid #0d0705;margin-right:-7px}
 .av:nth-child(1){background:#6B2010;color:#F5C4B3}
-.av:nth-child(2){background:#3B5E3A;color:#9FE1CB}
-.av:nth-child(3){background:#3C3489;color:#CECBF6}
+.av-stack .av:nth-child(2){background:#3B5E3A;color:#9FE1CB}
+.av-stack .av:nth-child(3){background:#3C3489;color:#CECBF6}
 .footer{margin-top:2rem;font-family:'Amiri',serif;font-size:13px;color:rgba(196,149,106,0.35);text-align:center;animation:fadeDown .9s .8s ease both;opacity:0}
 @keyframes fadeDown{from{opacity:0;transform:translateY(-18px)}to{opacity:1;transform:translateY(0)}}
 </style>
@@ -82,166 +81,183 @@ body::before{content:'';position:fixed;inset:0;opacity:0.35;pointer-events:none;
 <body>
 <div id="names-bg"></div>
 <div class="page">
-  <div class="logo-wrap">
-    <img src="logo.png" alt="شعار قوت"/>
-  </div>
-  <div class="tagline">ماضٍ يُقرَأ، وحاضرٌ يُقرى</div>
-  <div class="divider" style="opacity:1">
-    <div class="divider-line"></div><div class="divider-dot"></div><div class="divider-line"></div>
-  </div>
-  <div class="intro-card">
-    <p>يسر فريق مشروع <strong>«قوت»</strong> دعوتكم لمشاركتنا فرحة إنجازنا وتقييم مشروع تخرجنا في <strong>ملتقى الإبداع والابتكار</strong> بجامعة أم القرى.<br/><br/>يسعدنا أن تشاركونا تجربة فريدة ندمج فيها الذكاء الاصطناعي لتوثيق والاحتفاء بإرثنا وثقافتنا الغذائية السعودية.</p>
-  </div>
-  
-  <!-- تم التعديل على الأوقات والأماكن هنا -->
-  <div class="schedule">
-    <div class="day-card">
-      <div class="day-num">١</div>
-      <div class="day-info">
-        <div class="day-title">معرض السياحة والضيافة</div>
-        <div class="day-meta">الاثنين، ٨ يونيو ٢٠٢٦<br/>١٢:٣٠ م — ٣:٣٠ م<br/>قاعة الملك سعود</div>
-      </div>
-    </div>
-    <div class="day-card">
-      <div class="day-num">٢</div>
-      <div class="day-info">
-        <div class="day-title">معرض مشاريع التخرج · إنجاز</div>
-        <div class="day-meta">الثلاثاء، ٩ يونيو ٢٠٢٦<br/>١١:٣٠ ص — ١:٠٠ ظ<br/>بهو قاعة الملك عبدالعزيز</div>
-      </div>
-    </div>
-  </div>
+<div class="logo-wrap">
+<img src="logo.png" alt="شعار قوت"/>
+</div>
+<div class="tagline">ماضٍ يُقرَأ، وحاضرٌ يُقرى</div>
+<div class="divider" style="opacity:1">
+<div class="divider-line"></div><div class="divider-dot"></div><div class="divider-line"></div>
+</div>
+<div class="intro-card">
+<p>يسر فريق مشروع <strong>«قوت»</strong> دعوتكم لمشاركتنا فرحة إنجازنا وتقييم مشروع تخرجنا في <strong>ملتقى الإبداع والابتكار</strong> بجامعة أم القرى.<br/><br/>يسعدنا أن تشاركونا تجربة فريدة ندمج فيها الذكاء الاصطناعي لتوثيق والاحتفاء بإرثنا وثقافتنا الغذائية السعودية.</p>
+</div>
 
-  <div class="countdown-wrap">
-    <div class="countdown-label">الوقت المتبقي على المعرض الأول</div>
-    <div class="countdown-nums">
-      <div class="cnt-unit"><div class="cnt-num" id="cd-d">00</div><div class="cnt-lbl">يوم</div></div>
-      <div class="cnt-sep">:</div>
-      <div class="cnt-unit"><div class="cnt-num" id="cd-h">00</div><div class="cnt-lbl">ساعة</div></div>
-      <div class="cnt-sep">:</div>
-      <div class="cnt-unit"><div class="cnt-num" id="cd-m">00</div><div class="cnt-lbl">دقيقة</div></div>
-      <div class="cnt-sep">:</div>
-      <div class="cnt-unit"><div class="cnt-num" id="cd-s">00</div><div class="cnt-lbl">ثانية</div></div>
-    </div>
+<div class="schedule">
+<div class="day-card">
+  <div class="day-num">١</div>
+  <div class="day-info">
+    <div class="day-title">معرض السياحة والضيافة</div>
+    <div class="day-meta">الاثنين، ٨ يونيو ٢٠٢٦<br/>١٢:٣٠ م — ٣:٣٠ م<br/>📍 قاعة الملك سعود</div>
   </div>
-  <div class="rsvp-wrap">
-    <div class="rsvp-label">حضوركم يصنع الفارق 🤍</div>
-    <input class="rsvp-input" id="nameInput" placeholder="اكتب اسمك الكريم..." type="text"/>
-    <button class="btn-rsvp" id="rsvpBtn" onclick="confirmRSVP()">أؤكد حضوري</button>
-    <div class="confirm-msg" id="confirmMsg"></div>
-    <div class="error-msg" id="errorMsg"></div>
+</div>
+
+<div class="day-card">
+  <div class="day-num">٢</div>
+  <div class="day-info">
+    <div class="day-title">معرض مشاريع التخرج · إنجاز</div>
+    <div class="day-meta">الثلاثاء، ٩ يونيو ٢٠٢٦<br/>١١:٣٠ ص — ١:٠٠ ظ<br/>📍 بهو قاعة الملك عبد العزيز</div>
   </div>
-  <div class="attendees-row">
-    <div class="av-stack">
-      <div class="av">سا</div><div class="av">نو</div><div class="av">مح</div>
-    </div>
-    <span id="att-count">جاري حساب الحضور...</span>
-  </div>
-  <div class="footer">فريق قوت · جامعة أم القرى · ٢٠٢٦</div>
+</div>
+</div>
+
+<div class="countdown-wrap">
+<div class="countdown-label">الوقت المتبقي على معرض مشاريع التخرج (إنجاز)</div>
+<div class="countdown-nums">
+  <div class="cnt-unit"><div class="cnt-num" id="cd-d">00</div><div class="cnt-lbl">يوم</div></div>
+  <div class="cnt-sep">:</div>
+  <div class="cnt-unit"><div class="cnt-num" id="cd-h">00</div><div class="cnt-lbl">ساعة</div></div>
+  <div class="cnt-sep">:</div>
+  <div class="cnt-unit"><div class="cnt-num" id="cd-m">00</div><div class="cnt-lbl">دقيقة</div></div>
+  <div class="cnt-sep">:</div>
+  <div class="cnt-unit"><div class="cnt-num" id="cd-s">00</div><div class="cnt-lbl">ثانية</div></div>
+</div>
+</div>
+
+<div class="rsvp-wrap">
+<div class="rsvp-label">حضوركم يصنع الفارق 🤍</div>
+<input class="rsvp-input" id="nameInput" placeholder="اكتب اسمك الكريم..." type="text"/>
+<button class="btn-rsvp" id="rsvpBtn" onclick="confirmRSVP()">أؤكد حضوري</button>
+<div class="confirm-msg" id="confirmMsg"></div>
+<div class="error-msg" id="errorMsg"></div>
+</div>
+
+<div class="attendees-row">
+<div class="av-stack">
+  <div class="av">ق</div><div class="av">و</div><div class="av">ت</div>
+</div>
+<span id="att-count">جاري تحميل عدد الحضور...</span>
+</div>
+
+<div class="footer">فريق قوت · جامعة أم القرى · ٢٠٢٦</div>
 </div>
 
 <script>
+// رابط الـ Worker بعد تصحيحه برمجياً
+const WORKER_URL = 'https://qout-rsvp-backend.collectorg155.workers.dev/';
+
 const bg = document.getElementById('names-bg');
 const namePool = []; 
 let addedNames = [...namePool];
-const backendUrl = 'https://qout-rsvp-backend.collectorg155.workers.dev/';
 
 function spawnName(txt){
-  if (!txt) return;
-  const el = document.createElement('span');
-  el.className = 'floating-name';
-  el.textContent = txt;
-  const dur = 12 + Math.random()*14;
-  const delay = Math.random()*2;
-  const rot = (Math.random()-.5)*18;
-  el.style.cssText = 'left:'+(Math.random()*85)+'%;animation-duration:'+dur+'s;animation-delay:'+delay+'s;--rot:'+rot+'deg';
-  bg.appendChild(el);
-  setTimeout(()=>el.remove(),(dur+delay+2)*1000);
+if (!txt) return;
+const el = document.createElement('span');
+el.className = 'floating-name';
+el.textContent = txt;
+const dur = 12 + Math.random()*14;
+const delay = Math.random()*2; 
+const rot = (Math.random()-.5)*18;
+el.style.cssText = 'left:'+(Math.random()*85)+'%;animation-duration:'+dur+'s;animation-delay:'+delay+'s;--rot:'+rot+'deg';
+bg.appendChild(el);
+setTimeout(()=>el.remove(),(dur+delay+2)*1000);
 }
 
 setInterval(()=>{
-  if(addedNames.length > 0){
-    spawnName(addedNames[Math.floor(Math.random()*addedNames.length)]);
-  }
+if(addedNames.length > 0){
+  spawnName(addedNames[Math.floor(Math.random()*addedNames.length)]);
+}
 }, 4000);
 
-// تم تعديل وقت المعرض الأول ليتوافق مع 12:30 م
-const target = new Date('2026-06-08T12:30:00');
+// تحديث وقت العداد التنازلي إلى الساعة 12:30 ظهراً
+const target = new Date('2026-06-09T11:30:00');
 function pad(n){return String(n).padStart(2,'0')}
 function toAr(n){return String(n).replace(/\d/g,d=>'٠١٢٣٤٥٦٧٨٩'[d])}
+
 function tick(){
-  const diff = target - new Date();
-  if(diff<=0){['cd-d','cd-h','cd-m','cd-s'].forEach(id=>document.getElementById(id).textContent='٠٠');return;}
-  document.getElementById('cd-d').textContent=toAr(pad(Math.floor(diff/864e5)));
-  document.getElementById('cd-h').textContent=toAr(pad(Math.floor((diff%864e5)/36e5)));
-  document.getElementById('cd-m').textContent=toAr(pad(Math.floor((diff%36e5)/6e4)));
-  document.getElementById('cd-s').textContent=toAr(pad(Math.floor((diff%6e4)/1e3)));
+const diff = target - new Date();
+if(diff<=0){['cd-d','cd-h','cd-m','cd-s'].forEach(id=>document.getElementById(id).textContent='٠٠');return;}
+document.getElementById('cd-d').textContent=toAr(pad(Math.floor(diff/864e5)));
+document.getElementById('cd-h').textContent=toAr(pad(Math.floor((diff%864e5)/36e5)));
+document.getElementById('cd-m').textContent=toAr(pad(Math.floor((diff%36e5)/6e4)));
+document.getElementById('cd-s').textContent=toAr(pad(Math.floor((diff%6e4)/1e3)));
 }
 tick(); setInterval(tick,1000);
 
-let count = 0; // سيبدأ من صفر ثم يتم تحديثه من الباك إند
+let count = 0; // يبدأ من صفر حتى يتم الجلب الفعلي من السيرفر
 
-// دالة لجلب العدد الفعلي من قاعدة بيانات نوشن عبر الـ Worker
-async function fetchActualCount() {
-  try {
-    const res = await fetch(backendUrl);
-    if (res.ok) {
-      const data = await res.json();
-      count = data.count || 0;
-      updateCountUI();
+// دالة لجلب عدد الحضور الحقيقي من السيرفر عند فتح الصفحة
+async function fetchCurrentCount() {
+try {
+  const res = await fetch(WORKER_URL, { method: 'GET' });
+  if(res.ok) {
+    const data = await res.json();
+    count = data.count || 0;
+    // إذا كان السيرفر يعيد قائمة بالأسماء المسجلة أيضاً لعمل تأثير الطفو:
+    if(data.names && Array.isArray(data.names)) {
+      addedNames = data.names;
     }
-  } catch (e) {
-    console.error('فشل في جلب العدد:', e);
-    document.getElementById('att-count').textContent = 'كن أول الحاضرين';
+    updateCountUI();
+  } else {
+    document.getElementById('att-count').textContent = 'أكدوا حضورهم معنا';
   }
+} catch(e) {
+  document.getElementById('att-count').textContent = 'أكدوا حضورهم معنا';
+}
 }
 
 function updateCountUI() {
-  if (count > 0) {
-    document.getElementById('att-count').textContent = '+' + toAr(count) + ' شخصاً أكدوا حضورهم';
-  } else {
-    document.getElementById('att-count').textContent = 'كن أول الحاضرين';
-  }
+document.getElementById('att-count').textContent = '+' + toAr(count) + ' شخصاً أكدوا حضورهم';
 }
 
-// استدعاء دالة جلب العدد عند تحميل الصفحة
-fetchActualCount();
+// استدعاء جلب العدد مباشرة عند تحميل الصفحة
+fetchCurrentCount();
 
 async function confirmRSVP(){
-  const name = document.getElementById('nameInput').value.trim();
-  const confirmMsg = document.getElementById('confirmMsg');
-  const errorMsg = document.getElementById('errorMsg');
-  const btn = document.getElementById('rsvpBtn');
-  const inp = document.getElementById('nameInput');
-  confirmMsg.style.display='none';
-  errorMsg.style.display='none';
-  if(!name){inp.style.borderColor='rgba(226,75,74,0.7)';return;}
-  inp.style.borderColor='';
-  btn.disabled=true;
-  btn.textContent='جاري التسجيل...';
-  try {
-    const res = await fetch(backendUrl, {
-      method:'POST',
-      headers:{'Content-Type':'application/json'},
-      body: JSON.stringify({name})
-    });
-    if(res.ok){
-      addedNames.push(name);
-      for(let i=0;i<4;i++) setTimeout(()=>spawnName(name),i*600);
-      count++;
-      updateCountUI(); // تحديث الرقم فوراً بعد الإضافة الناجحة
-      confirmMsg.style.display='block';
-      confirmMsg.textContent='✓ يسعدنا حضورك يا '+name+'، نراك في المعرض 🤍';
-      inp.value='';
-    } else {
-      errorMsg.style.display='block';
-      errorMsg.textContent='حدث خطأ، حاولي مرة ثانية';
-    }
-  } catch(e){
-    errorMsg.style.display='block';
-    errorMsg.textContent='تعذر الاتصال، تحقق من الإنترنت';
+const name = document.getElementById('nameInput').value.trim();
+const confirmMsg = document.getElementById('confirmMsg');
+const errorMsg = document.getElementById('errorMsg');
+const btn = document.getElementById('rsvpBtn');
+const inp = document.getElementById('nameInput');
+confirmMsg.style.display='none';
+errorMsg.style.display='none';
+if(!name){inp.style.borderColor='rgba(226,75,74,0.7)';return;}
+inp.style.borderColor='';
+btn.disabled=true;
+btn.textContent='جاري التسجيل...';
+
+try {
+const res = await fetch(WORKER_URL, {
+  method:'POST',
+  headers:{'Content-Type':'application/json'},
+  body: JSON.stringify({name})
+});
+
+if(res.ok){
+  const responseData = await res.json().catch(() => ({}));
+  addedNames.push(name);
+  for(let i=0;i<4;i++) setTimeout(()=>spawnName(name),i*600);
+  
+  // إذا كان السيرفر يرجع العدد الجديد نأخذه منه، وإلا نزيد العداد محلياً بـ 1
+  if (responseData.count) {
+    count = responseData.count;
+  } else {
+    count++;
   }
-  btn.disabled=false;
-  btn.textContent='أؤكد حضوري';
+  
+  updateCountUI();
+  confirmMsg.style.display='block';
+  confirmMsg.textContent='✓ يسعدنا حضورك يا '+name+'، نراك في المعرض 🤍';
+  inp.value='';
+} else {
+  errorMsg.style.display='block';
+  errorMsg.textContent='حدث خطأ، حاولي مرة ثانية';
+}
+} catch(e){
+errorMsg.style.display='block';
+errorMsg.textContent='تعذر الاتصال، تحقق من الإنترنت';
+}
+btn.disabled=false;
+btn.textContent='أؤكد حضوري';
 }
 </script>
 </body>
