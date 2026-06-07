@@ -6,7 +6,6 @@
 <title>دعوة | قوت</title>
 <link rel="preconnect" href="https://fonts.googleapis.com"/>
 <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@300;400;500;700;900&family=Amiri:wght@400;700&display=swap" rel="stylesheet"/>
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/tabler-icons.min.css"/>
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
 :root{--brown-dark:#3B1008;--brown-mid:#6B2010;--sand:#C4956A;--sage:#A8B5A0;--cream:#F5EFE6}
@@ -14,7 +13,6 @@ html,body{height:100%;overflow-x:hidden}
 body{background:#0d0705;font-family:'Tajawal',sans-serif;color:var(--cream);min-height:100vh;position:relative}
 #names-bg{position:fixed;inset:0;pointer-events:none;z-index:0;overflow:hidden}
 
-/* تأثير الدوائر الفخمة العائمة مع الأسماء */
 .floating-name{
   position:absolute;
   font-family:'Amiri',serif;
@@ -84,7 +82,6 @@ body::before{content:'';position:fixed;inset:0;opacity:0.35;pointer-events:none;
 <body>
 <div id="names-bg"></div>
 <div class="page">
-  <!-- باقي محتوى الـ HTML بدون تغييرات -->
   <div class="logo-wrap">
     <img src="logo.png" alt="شعار قوت"/>
   </div>
@@ -95,22 +92,25 @@ body::before{content:'';position:fixed;inset:0;opacity:0.35;pointer-events:none;
   <div class="intro-card">
     <p>يسر فريق مشروع <strong>«قوت»</strong> دعوتكم لمشاركتنا فرحة إنجازنا وتقييم مشروع تخرجنا في <strong>ملتقى الإبداع والابتكار</strong> بجامعة أم القرى.<br/><br/>يسعدنا أن تشاركونا تجربة فريدة ندمج فيها الذكاء الاصطناعي لتوثيق والاحتفاء بإرثنا وثقافتنا الغذائية السعودية.</p>
   </div>
+  
+  <!-- تم التعديل على الأوقات والأماكن هنا -->
   <div class="schedule">
     <div class="day-card">
       <div class="day-num">١</div>
       <div class="day-info">
         <div class="day-title">معرض السياحة والضيافة</div>
-        <div class="day-meta">الاثنين، ٨ يونيو ٢٠٢٦<br/>٣:٣٠ م — ٦:٣٠ م</div>
+        <div class="day-meta">الاثنين، ٨ يونيو ٢٠٢٦<br/>١٢:٣٠ م — ٣:٣٠ م<br/>قاعة الملك سعود</div>
       </div>
     </div>
     <div class="day-card">
       <div class="day-num">٢</div>
       <div class="day-info">
         <div class="day-title">معرض مشاريع التخرج · إنجاز</div>
-        <div class="day-meta">الثلاثاء، ٩ يونيو ٢٠٢٦<br/>١١:٠٠ ص — ٢:٠٠ ظ</div>
+        <div class="day-meta">الثلاثاء، ٩ يونيو ٢٠٢٦<br/>١١:٣٠ ص — ١:٠٠ ظ<br/>بهو قاعة الملك عبدالعزيز</div>
       </div>
     </div>
   </div>
+
   <div class="countdown-wrap">
     <div class="countdown-label">الوقت المتبقي على المعرض الأول</div>
     <div class="countdown-nums">
@@ -134,15 +134,16 @@ body::before{content:'';position:fixed;inset:0;opacity:0.35;pointer-events:none;
     <div class="av-stack">
       <div class="av">سا</div><div class="av">نو</div><div class="av">مح</div>
     </div>
-    <span id="att-count">+٣٢ شخصاً أكدوا حضورهم</span>
+    <span id="att-count">جاري حساب الحضور...</span>
   </div>
   <div class="footer">فريق قوت · جامعة أم القرى · ٢٠٢٦</div>
 </div>
 
 <script>
 const bg = document.getElementById('names-bg');
-const namePool = []; // تم حذف الأسماء الديفولت لتصبح فارغة تماماً عند البداية
+const namePool = []; 
 let addedNames = [...namePool];
+const backendUrl = 'https://qout-rsvp-backend.collectorg155.workers.dev/';
 
 function spawnName(txt){
   if (!txt) return;
@@ -150,21 +151,21 @@ function spawnName(txt){
   el.className = 'floating-name';
   el.textContent = txt;
   const dur = 12 + Math.random()*14;
-  const delay = Math.random()*2; // تقليل الانتظار عند الإضافة المباشرة ليكون التأثير فورياً
+  const delay = Math.random()*2;
   const rot = (Math.random()-.5)*18;
   el.style.cssText = 'left:'+(Math.random()*85)+'%;animation-duration:'+dur+'s;animation-delay:'+delay+'s;--rot:'+rot+'deg';
   bg.appendChild(el);
   setTimeout(()=>el.remove(),(dur+delay+2)*1000);
 }
 
-// يبدأ توليد الحلقات العشوائية في الخلفية فقط إذا أضاف أحد اسماً جديداً
 setInterval(()=>{
   if(addedNames.length > 0){
     spawnName(addedNames[Math.floor(Math.random()*addedNames.length)]);
   }
 }, 4000);
 
-const target = new Date('2026-06-08T15:30:00');
+// تم تعديل وقت المعرض الأول ليتوافق مع 12:30 م
+const target = new Date('2026-06-08T12:30:00');
 function pad(n){return String(n).padStart(2,'0')}
 function toAr(n){return String(n).replace(/\d/g,d=>'٠١٢٣٤٥٦٧٨٩'[d])}
 function tick(){
@@ -177,7 +178,34 @@ function tick(){
 }
 tick(); setInterval(tick,1000);
 
-let count = 32;
+let count = 0; // سيبدأ من صفر ثم يتم تحديثه من الباك إند
+
+// دالة لجلب العدد الفعلي من قاعدة بيانات نوشن عبر الـ Worker
+async function fetchActualCount() {
+  try {
+    const res = await fetch(backendUrl);
+    if (res.ok) {
+      const data = await res.json();
+      count = data.count || 0;
+      updateCountUI();
+    }
+  } catch (e) {
+    console.error('فشل في جلب العدد:', e);
+    document.getElementById('att-count').textContent = 'كن أول الحاضرين';
+  }
+}
+
+function updateCountUI() {
+  if (count > 0) {
+    document.getElementById('att-count').textContent = '+' + toAr(count) + ' شخصاً أكدوا حضورهم';
+  } else {
+    document.getElementById('att-count').textContent = 'كن أول الحاضرين';
+  }
+}
+
+// استدعاء دالة جلب العدد عند تحميل الصفحة
+fetchActualCount();
+
 async function confirmRSVP(){
   const name = document.getElementById('nameInput').value.trim();
   const confirmMsg = document.getElementById('confirmMsg');
@@ -191,18 +219,16 @@ async function confirmRSVP(){
   btn.disabled=true;
   btn.textContent='جاري التسجيل...';
   try {
-    // ضعي رابط الـ Worker الحقيقي الخاص بكِ بدلاً من المكتوب بالأسفل هنا:
-    const res = await fetch('https://qout-rsvp-backend.collectorg155.workers.dev/', {
+    const res = await fetch(backendUrl, {
       method:'POST',
       headers:{'Content-Type':'application/json'},
       body: JSON.stringify({name})
     });
     if(res.ok){
       addedNames.push(name);
-      // إطلاق 4 دوائر تحمل الاسم فوراً في الخلفية للاحتفال بإضافة الاسم
       for(let i=0;i<4;i++) setTimeout(()=>spawnName(name),i*600);
       count++;
-      document.getElementById('att-count').textContent='+'+toAr(count)+' شخصاً أكدوا حضورهم';
+      updateCountUI(); // تحديث الرقم فوراً بعد الإضافة الناجحة
       confirmMsg.style.display='block';
       confirmMsg.textContent='✓ يسعدنا حضورك يا '+name+'، نراك في المعرض 🤍';
       inp.value='';
