@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<title>دعوة | قوت</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@300;400;500;700;900&family=Amiri:wght@400;700&display=swap" rel="stylesheet"/>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/tabler-icons.min.css"/>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{--brown-dark:#3B1008;--brown-mid:#6B2010;--sand:#C4956A;--sage:#A8B5A0;--cream:#F5EFE6}
+html,body{height:100%;overflow-x:hidden}
+body{background:#0d0705;font-family:'Tajawal',sans-serif;color:var(--cream);min-height:100vh;position:relative}
+#names-bg{position:fixed;inset:0;pointer-events:none;z-index:0;overflow:hidden}
+
+/* تأثير الدوائر الفخمة العائمة مع الأسماء */
+.floating-name{
+  position:absolute;
+  font-family:'Amiri',serif;
+  font-size:clamp(12px, 1.5vw, 16px);
+  color:rgba(196,149,106,0.4); 
+  background:rgba(196,149,106,0.03); 
+  border:1px solid rgba(196,149,106,0.15); 
+  border-radius:50%;
+  width:clamp(70px, 8vw, 100px);
+  height:clamp(70px, 8vw, 100px);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  text-align:center;
+  white-space:nowrap;
+  animation:floatUp linear infinite;
+  user-select:none;
+  box-shadow:0 4px 15px rgba(0,0,0,0.2);
+}
+
+@keyframes floatUp{0%{transform:translateY(110vh) rotate(var(--rot));opacity:0}10%{opacity:1}90%{opacity:0.7}100%{transform:translateY(-20vh) rotate(var(--rot));opacity:0}}
+body::before{content:'';position:fixed;inset:0;opacity:0.35;pointer-events:none;z-index:1}
+.page{position:relative;z-index:2;min-height:100vh;display:flex;flex-direction:column;align-items:center;padding:2.5rem 1.25rem 3rem;gap:0}
+.logo-wrap{margin-bottom:1rem;animation:fadeDown .9s ease both}
+.logo-wrap img{width:110px;height:auto;filter:drop-shadow(0 2px 18px rgba(196,149,106,0.25))}
+.tagline{font-family:'Amiri',serif;font-size:clamp(15px,3.5vw,20px);color:var(--sand);text-align:center;margin-bottom:1.75rem;animation:fadeDown .9s .1s ease both;opacity:0}
+.divider{display:flex;align-items:center;gap:10px;width:100%;max-width:480px;margin-bottom:1.75rem;animation:fadeDown .9s .2s ease both;opacity:0}
+.divider-line{flex:1;height:1px;background:linear-gradient(90deg,transparent,rgba(196,149,106,0.5),transparent)}
+.divider-dot{width:5px;height:5px;border-radius:50%;background:var(--sand);opacity:.7}
+.intro-card{background:rgba(59,16,8,0.35);border:1px solid rgba(196,149,106,0.18);border-radius:16px;padding:1.5rem;max-width:480px;width:100%;margin-bottom:1.5rem;animation:fadeDown .9s .3s ease both;opacity:0;backdrop-filter:blur(4px)}
+.intro-card p{font-size:14px;line-height:1.9;color:rgba(245,239,230,0.85);text-align:center}
+.intro-card strong{color:var(--sand);font-weight:700}
+.schedule{width:100%;max-width:480px;display:flex;flex-direction:column;gap:.75rem;margin-bottom:1.75rem;animation:fadeDown .9s .4s ease both;opacity:0}
+.day-card{background:rgba(59,16,8,0.4);border:1px solid rgba(196,149,106,0.2);border-radius:14px;padding:1rem 1.25rem;display:flex;align-items:flex-start;gap:1rem;backdrop-filter:blur(4px)}
+.day-num{min-width:44px;height:44px;border-radius:10px;background:rgba(196,149,106,0.15);border:1px solid rgba(196,149,106,0.3);display:flex;align-items:center;justify-content:center;font-family:'Amiri',serif;font-size:18px;font-weight:700;color:var(--sand)}
+.day-info{flex:1}
+.day-title{font-size:13px;font-weight:700;color:var(--sand);margin-bottom:4px}
+.day-meta{font-size:12px;color:rgba(245,239,230,0.6);line-height:1.7}
+.countdown-wrap{width:100%;max-width:480px;margin-bottom:1.75rem;animation:fadeDown .9s .5s ease both;opacity:0}
+.countdown-label{font-size:11px;color:rgba(196,149,106,0.6);text-align:center;margin-bottom:.75rem;letter-spacing:1px}
+.countdown-nums{display:flex;justify-content:center;gap:8px}
+.cnt-unit{display:flex;flex-direction:column;align-items:center;gap:4px}
+.cnt-num{font-size:26px;font-weight:900;color:var(--cream);background:rgba(59,16,8,0.6);border:1px solid rgba(196,149,106,0.25);border-radius:10px;padding:8px 12px;min-width:54px;text-align:center;line-height:1}
+.cnt-lbl{font-size:10px;color:rgba(196,149,106,0.55)}
+.cnt-sep{font-size:22px;font-weight:700;color:rgba(196,149,106,0.5);margin-bottom:18px}
+.rsvp-wrap{width:100%;max-width:480px;display:flex;flex-direction:column;gap:.75rem;animation:fadeDown .9s .6s ease both;opacity:0}
+.rsvp-label{font-size:13px;color:var(--sand);font-weight:500;text-align:center}
+.rsvp-input{width:100%;padding:13px 16px;border-radius:12px;border:1px solid rgba(196,149,106,0.3);background:rgba(59,16,8,0.5);font-family:'Tajawal',sans-serif;font-size:14px;color:var(--cream);outline:none;text-align:center;transition:border-color .2s}
+.rsvp-input::placeholder{color:rgba(245,239,230,0.3)}
+.rsvp-input:focus{border-color:rgba(196,149,106,0.7)}
+.btn-rsvp{width:100%;padding:14px;border-radius:12px;border:none;background:linear-gradient(135deg,#6B2010,#C4956A);color:#fff;font-family:'Tajawal',sans-serif;font-size:15px;font-weight:700;cursor:pointer;transition:opacity .2s,transform .1s}
+.btn-rsvp:hover{opacity:.9}
+.btn-rsvp:active{transform:scale(0.98)}
+.btn-rsvp:disabled{opacity:.5;cursor:not-allowed}
+.confirm-msg{display:none;background:rgba(15,110,86,0.2);border:1px solid rgba(15,110,86,0.4);border-radius:10px;padding:.85rem 1rem;color:#5DCAA5;font-size:13px;font-weight:500;text-align:center}
+.error-msg{display:none;background:rgba(226,75,74,0.15);border:1px solid rgba(226,75,74,0.3);border-radius:10px;padding:.85rem 1rem;color:#F09595;font-size:13px;text-align:center}
+.attendees-row{display:flex;align-items:center;justify-content:center;gap:8px;font-size:12px;color:rgba(245,239,230,0.45);margin-top:.5rem;animation:fadeDown .9s .7s ease both;opacity:0}
+.av-stack{display:flex}
+.av{width:26px;height:26px;border-radius:50%;font-size:9px;font-weight:700;display:flex;align-items:center;justify-content:center;border:2px solid #0d0705;margin-right:-7px}
+.av:nth-child(1){background:#6B2010;color:#F5C4B3}
+.av:nth-child(2){background:#3B5E3A;color:#9FE1CB}
+.av:nth-child(3){background:#3C3489;color:#CECBF6}
+.footer{margin-top:2rem;font-family:'Amiri',serif;font-size:13px;color:rgba(196,149,106,0.35);text-align:center;animation:fadeDown .9s .8s ease both;opacity:0}
+@keyframes fadeDown{from{opacity:0;transform:translateY(-18px)}to{opacity:1;transform:translateY(0)}}
+</style>
+</head>
+<body>
+<div id="names-bg"></div>
+<div class="page">
+  <!-- باقي محتوى الـ HTML بدون تغييرات -->
+  <div class="logo-wrap">
+    <img src="logo.png" alt="شعار قوت"/>
+  </div>
+  <div class="tagline">ماضٍ يُقرَأ، وحاضرٌ يُقرى</div>
+  <div class="divider" style="opacity:1">
+    <div class="divider-line"></div><div class="divider-dot"></div><div class="divider-line"></div>
+  </div>
+  <div class="intro-card">
+    <p>يسر فريق مشروع <strong>«قوت»</strong> دعوتكم لمشاركتنا فرحة إنجازنا وتقييم مشروع تخرجنا في <strong>ملتقى الإبداع والابتكار</strong> بجامعة أم القرى.<br/><br/>يسعدنا أن تشاركونا تجربة فريدة ندمج فيها الذكاء الاصطناعي لتوثيق والاحتفاء بإرثنا وثقافتنا الغذائية السعودية.</p>
+  </div>
+  <div class="schedule">
+    <div class="day-card">
+      <div class="day-num">١</div>
+      <div class="day-info">
+        <div class="day-title">معرض السياحة والضيافة</div>
+        <div class="day-meta">الاثنين، ٨ يونيو ٢٠٢٦<br/>٣:٣٠ م — ٦:٣٠ م</div>
+      </div>
+    </div>
+    <div class="day-card">
+      <div class="day-num">٢</div>
+      <div class="day-info">
+        <div class="day-title">معرض مشاريع التخرج · إنجاز</div>
+        <div class="day-meta">الثلاثاء، ٩ يونيو ٢٠٢٦<br/>١١:٠٠ ص — ٢:٠٠ ظ</div>
+      </div>
+    </div>
+  </div>
+  <div class="countdown-wrap">
+    <div class="countdown-label">الوقت المتبقي على المعرض الأول</div>
+    <div class="countdown-nums">
+      <div class="cnt-unit"><div class="cnt-num" id="cd-d">00</div><div class="cnt-lbl">يوم</div></div>
+      <div class="cnt-sep">:</div>
+      <div class="cnt-unit"><div class="cnt-num" id="cd-h">00</div><div class="cnt-lbl">ساعة</div></div>
+      <div class="cnt-sep">:</div>
+      <div class="cnt-unit"><div class="cnt-num" id="cd-m">00</div><div class="cnt-lbl">دقيقة</div></div>
+      <div class="cnt-sep">:</div>
+      <div class="cnt-unit"><div class="cnt-num" id="cd-s">00</div><div class="cnt-lbl">ثانية</div></div>
+    </div>
+  </div>
+  <div class="rsvp-wrap">
+    <div class="rsvp-label">حضوركم يصنع الفارق 🤍</div>
+    <input class="rsvp-input" id="nameInput" placeholder="اكتب اسمك الكريم..." type="text"/>
+    <button class="btn-rsvp" id="rsvpBtn" onclick="confirmRSVP()">أؤكد حضوري</button>
+    <div class="confirm-msg" id="confirmMsg"></div>
+    <div class="error-msg" id="errorMsg"></div>
+  </div>
+  <div class="attendees-row">
+    <div class="av-stack">
+      <div class="av">سا</div><div class="av">نو</div><div class="av">مح</div>
+    </div>
+    <span id="att-count">+٣٢ شخصاً أكدوا حضورهم</span>
+  </div>
+  <div class="footer">فريق قوت · جامعة أم القرى · ٢٠٢٦</div>
+</div>
+
+<script>
+const bg = document.getElementById('names-bg');
+const namePool = []; // تم حذف الأسماء الديفولت لتصبح فارغة تماماً عند البداية
+let addedNames = [...namePool];
+
+function spawnName(txt){
+  if (!txt) return;
+  const el = document.createElement('span');
+  el.className = 'floating-name';
+  el.textContent = txt;
+  const dur = 12 + Math.random()*14;
+  const delay = Math.random()*2; // تقليل الانتظار عند الإضافة المباشرة ليكون التأثير فورياً
+  const rot = (Math.random()-.5)*18;
+  el.style.cssText = 'left:'+(Math.random()*85)+'%;animation-duration:'+dur+'s;animation-delay:'+delay+'s;--rot:'+rot+'deg';
+  bg.appendChild(el);
+  setTimeout(()=>el.remove(),(dur+delay+2)*1000);
+}
+
+// يبدأ توليد الحلقات العشوائية في الخلفية فقط إذا أضاف أحد اسماً جديداً
+setInterval(()=>{
+  if(addedNames.length > 0){
+    spawnName(addedNames[Math.floor(Math.random()*addedNames.length)]);
+  }
+}, 4000);
+
+const target = new Date('2026-06-08T15:30:00');
+function pad(n){return String(n).padStart(2,'0')}
+function toAr(n){return String(n).replace(/\d/g,d=>'٠١٢٣٤٥٦٧٨٩'[d])}
+function tick(){
+  const diff = target - new Date();
+  if(diff<=0){['cd-d','cd-h','cd-m','cd-s'].forEach(id=>document.getElementById(id).textContent='٠٠');return;}
+  document.getElementById('cd-d').textContent=toAr(pad(Math.floor(diff/864e5)));
+  document.getElementById('cd-h').textContent=toAr(pad(Math.floor((diff%864e5)/36e5)));
+  document.getElementById('cd-m').textContent=toAr(pad(Math.floor((diff%36e5)/6e4)));
+  document.getElementById('cd-s').textContent=toAr(pad(Math.floor((diff%6e4)/1e3)));
+}
+tick(); setInterval(tick,1000);
+
+let count = 32;
+async function confirmRSVP(){
+  const name = document.getElementById('nameInput').value.trim();
+  const confirmMsg = document.getElementById('confirmMsg');
+  const errorMsg = document.getElementById('errorMsg');
+  const btn = document.getElementById('rsvpBtn');
+  const inp = document.getElementById('nameInput');
+  confirmMsg.style.display='none';
+  errorMsg.style.display='none';
+  if(!name){inp.style.borderColor='rgba(226,75,74,0.7)';return;}
+  inp.style.borderColor='';
+  btn.disabled=true;
+  btn.textContent='جاري التسجيل...';
+  try {
+    // ضعي رابط الـ Worker الحقيقي الخاص بكِ بدلاً من المكتوب بالأسفل هنا:
+    const res = await fetch('https://qout-rsvp-backend.collectorg155.workers.dev/', {
+      method:'POST',
+      headers:{'Content-Type':'application/json'},
+      body: JSON.stringify({name})
+    });
+    if(res.ok){
+      addedNames.push(name);
+      // إطلاق 4 دوائر تحمل الاسم فوراً في الخلفية للاحتفال بإضافة الاسم
+      for(let i=0;i<4;i++) setTimeout(()=>spawnName(name),i*600);
+      count++;
+      document.getElementById('att-count').textContent='+'+toAr(count)+' شخصاً أكدوا حضورهم';
+      confirmMsg.style.display='block';
+      confirmMsg.textContent='✓ يسعدنا حضورك يا '+name+'، نراك في المعرض 🤍';
+      inp.value='';
+    } else {
+      errorMsg.style.display='block';
+      errorMsg.textContent='حدث خطأ، حاولي مرة ثانية';
+    }
+  } catch(e){
+    errorMsg.style.display='block';
+    errorMsg.textContent='تعذر الاتصال، تحقق من الإنترنت';
+  }
+  btn.disabled=false;
+  btn.textContent='أؤكد حضوري';
+}
+</script>
+</body>
+</html>
